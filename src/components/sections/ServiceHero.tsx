@@ -51,7 +51,7 @@ export default function ServiceHero() {
             <div className="relative z-10 text-center px-6">
 
                 {/* Label */}
-                <p className="text-stone-400 dark:text-stone-500 tracking-[0.25em] uppercase text-xs">
+                <p className="text-stone-800 dark:text-stone-500 tracking-[0.25em] uppercase text-xs">
                     Our Services
                 </p>
 
