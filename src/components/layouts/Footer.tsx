@@ -41,7 +41,7 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="/contact" className="transition hover:text-rose-500">
+                                <a href="/contact-us" className="transition hover:text-rose-500">
                                     Contact
                                 </a>
                             </li>
@@ -92,15 +92,6 @@ export default function Footer() {
                                     className="transition hover:text-rose-500"
                                 >
                                     Facebook
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="https://youtube.com"
-                                    target="_blank"
-                                    className="transition hover:text-rose-500"
-                                >
-                                    YouTube
                                 </a>
                             </li>
                         </ul>
