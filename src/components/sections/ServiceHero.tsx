@@ -24,16 +24,31 @@ export default function ServiceHero() {
                 style={{ transform: `translateY(${offsetY}px)` }}
             >
                 <Image
+                    src="/services/services-hero-light.jpg"
+                    alt="Luxury event setup with floral and candle decor"
+                    fill
+                    priority
+                    className="object-cover dark:hidden"
+                />
+
+                <Image
                     src="/services/services-hero.jpg"
                     alt="Luxury event setup with floral and candle decor"
                     fill
                     priority
-                    className="object-cover"
+                    className="object-cover hidden dark:block"
                 />
             </div>
 
             {/* Light Mode Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-rose-50/40 to-rose-50/80 dark:hidden" />
+            <div className="absolute inset-0 bg-gradient-to-b 
+                from-stone-50/75 
+                via-stone-50/60 
+                to-rose-50/0
+                dark:from-stone-950/85 
+                dark:via-stone-950/75 
+                dark:to-stone-950/70" 
+            />
 
             {/* Dark Mode Overlay */}
             <div className="absolute inset-0 hidden dark:block bg-gradient-to-b from-stone-950/40 via-stone-950/60 to-stone-950/85" />
