@@ -40,21 +40,21 @@ export default function SignatureServices() {
                                 fill
                                 className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                             />
-
                             {/* Light Overlay */}
-                            <div className="absolute inset-0 bg-rose-50/40 transition-all duration-700 group-hover:bg-rose-50/60 dark:hidden" />
-
+                            <div
+                                className={`absolute inset-0 
+                                    bg-gradient-to-b 
+                                    from-rose-200/10 
+                                    via-rose-200/20 
+                                    to-rose-300/30
+                                    transition-all duration-700
+                                    group-hover:from-rose-200/20 
+                                    group-hover:via-rose-200/30 
+                                    group-hover:to-rose-300/40 
+                                    dark:hidden`}
+                            />
                             {/* Dark Overlay */}
                             <div className="absolute inset-0 hidden dark:block bg-stone-950/40 transition-all duration-700 group-hover:bg-stone-950/60" />
-
-                            {/* Grain Texture */}
-                            <div
-                                className="absolute inset-0 pointer-events-none opacity-[0.06] mix-blend-overlay dark:mix-blend-soft-light"
-                                style={{
-                                    backgroundImage: "url('/textures/grain.png')",
-                                    backgroundSize: "cover"
-                                }}
-                            />
 
                             {/* Content */}
                             <div className="absolute bottom-0 left-0 p-8 w-full transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2">
