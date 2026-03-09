@@ -41,8 +41,13 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
+                                <a href="/about-us" className="transition hover:text-rose-500">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/contact-us" className="transition hover:text-rose-500">
-                                    Contact
+                                    Contact Us
                                 </a>
                             </li>
                         </ul>

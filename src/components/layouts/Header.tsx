@@ -20,15 +20,13 @@ export default function Header() {
         <>
             {/* Main Header */}
             <header
-                className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ${
-                    scrolled
+                className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ${scrolled
                         ? "bg-white/90 backdrop-blur-md shadow-sm dark:bg-stone-950/90"
                         : "bg-transparent"
-                }`}
+                    }`}
             >
-                <div className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 ${
-                    scrolled ? "py-4" : "py-6"
-                }`}>
+                <div className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 ${scrolled ? "py-4" : "py-6"
+                    }`}>
 
                     {/* Logo */}
                     <Link
@@ -49,8 +47,11 @@ export default function Header() {
                         <Link href="/services" className="text-stone-700 transition hover:text-rose-500 dark:text-stone-200">
                             Services
                         </Link>
+                        <Link href="/about-us" className="text-stone-700 transition hover:text-rose-500 dark:text-stone-200">
+                            About Us
+                        </Link>
                         <Link href="/contact-us" className="text-stone-700 transition hover:text-rose-500 dark:text-stone-200">
-                            Contact
+                            Contact Us
                         </Link>
                     </nav>
 
@@ -69,23 +70,20 @@ export default function Header() {
 
             {/* Mobile Slide Menu */}
             <div
-                className={`fixed inset-0 z-50 transition ${
-                    open ? "visible" : "invisible"
-                }`}
+                className={`fixed inset-0 z-50 transition ${open ? "visible" : "invisible"
+                    }`}
             >
                 {/* Overlay */}
                 <div
                     onClick={() => setOpen(false)}
-                    className={`absolute inset-0 bg-stone-950/50 transition-opacity duration-500 ${
-                        open ? "opacity-100" : "opacity-0"
-                    }`}
+                    className={`absolute inset-0 bg-stone-950/50 transition-opacity duration-500 ${open ? "opacity-100" : "opacity-0"
+                        }`}
                 />
 
                 {/* Panel */}
                 <div
-                    className={`absolute right-0 top-0 h-full w-3/4 max-w-sm bg-white p-10 shadow-xl transition-transform duration-500 dark:bg-stone-950 ${
-                        open ? "translate-x-0" : "translate-x-full"
-                    }`}
+                    className={`absolute right-0 top-0 h-full w-3/4 max-w-sm bg-white p-10 shadow-xl transition-transform duration-500 dark:bg-stone-950 ${open ? "translate-x-0" : "translate-x-full"
+                        }`}
                 >
                     <button
                         onClick={() => setOpen(false)}
@@ -104,8 +102,11 @@ export default function Header() {
                         <Link href="/services" onClick={() => setOpen(false)}>
                             Services
                         </Link>
+                        <Link href="/about-us" onClick={() => setOpen(false)}>
+                            About US
+                        </Link>
                         <Link href="/contact-us" onClick={() => setOpen(false)}>
-                            Contact
+                            Contact US
                         </Link>
                     </nav>
                 </div>
