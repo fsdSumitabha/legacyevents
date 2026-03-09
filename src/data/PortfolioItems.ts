@@ -11,7 +11,7 @@ type PortfolioItem = {
 const portfolioItems: PortfolioItem[] = [
     { id: "1", type: "image", category: "Weddings", src: "/portfolio/event-1.jpg", title: "Royal Birthday Celebration", location: "Alipore Kolkata", year: 2023 },
     { id: "2", type: "video", category: "Rice Ceremony", src: "/portfolio/event-film.mp4", title: "Luxury Rice Ceremony", location: "Ruby, Kolkata", year: 2024 },
-    { id: "3", type: "image", category: "Weddings", src: "/portfolio/event-2.jpg", title: "Destination Wedding", location: "New Town, Kolkata", year: 2024 },
+    { id: "3", type: "image", category: "Rice Ceremony", src: "/portfolio/event-2.jpg", title: "Destination Rice Ceremony", location: "New Town, Kolkata", year: 2024 },
     { id: "4", type: "image", category: "Corporate", src: "/portfolio/event-3.jpg", title: "Corporate Gala Night", location: "Ballygung, Kolkata", year: 2023 },
     { id: "5", type: "image", category: "Weddings", src: "/portfolio/event-4.jpg", title: "Royal Birthday Celebration", location: "Salt Lake, Kolkata", year: 2024 },
     { id: "6", type: "video", category: "Corporate", src: "/portfolio/event-film-2.mp4", title: "Luxury Corporate Reunion", location: "Joka, Kolkata", year: 2023 },
