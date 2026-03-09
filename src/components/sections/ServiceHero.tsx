@@ -66,23 +66,23 @@ export default function ServiceHero() {
             <div className="relative z-10 text-center px-6">
 
                 {/* Label */}
-                <p className="text-stone-800 dark:text-stone-500 tracking-[0.25em] uppercase text-xs">
+                <p className="text-pink-800 dark:text-stone-500 tracking-[0.25em] uppercase text-xs">
                     Our Services
                 </p>
 
                 {/* Heading */}
-                <h1 className="mt-6 text-stone-800 dark:text-stone-100 text-4xl md:text-6xl font-serif leading-tight">
+                <h1 className="mt-6 text-pink-950 dark:text-stone-100 text-4xl md:text-6xl font-serif leading-tight">
                     Experiences Designed With Intention
                 </h1>
 
                 {/* Paragraph */}
-                <p className="text-stone-600 dark:text-stone-400 max-w-xl mx-auto mt-6">
+                <p className="text-pink-900 dark:text-stone-400 max-w-xl mx-auto mt-6">
                     From intimate ceremonies to grand celebrations, we design events that feel timeless, personal, and unforgettable.
                 </p>
 
                 {/* CTA */}
                 <div className="mt-10">
-                    <button className="bg-rose-400 hover:bg-rose-500 text-white px-8 py-3 rounded-full shadow-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+                    <button className="bg-rose-700 hover:bg-rose-800 text-white px-8 py-3 rounded-full shadow-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
                         Plan Your Event
                     </button>
                 </div>
