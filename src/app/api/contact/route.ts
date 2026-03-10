@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { sendContactMail } from "@/lib/sendMail"
+import { sendContactMail } from "@/services/contactMail"
 import { ContactFormData } from "@/types/contact"
 
 function isValidEmail(email: string) {
