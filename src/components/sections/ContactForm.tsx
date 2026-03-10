@@ -33,7 +33,7 @@ export default function ContactForm() {
 
         setLoading(true)
 
-        const toastId = toast.loading("Sending your inquiry...")
+        const toastId = toast.loading("Sending your enquery...")
 
         try {
 
@@ -48,10 +48,10 @@ export default function ContactForm() {
             const data = await response.json()
 
             if (!response.ok) {
-                throw new Error(data.error || "Failed to send inquiry")
+                throw new Error(data.error || "Failed to send enquery")
             }
 
-            toast.success("Inquiry sent successfully!", {
+            toast.success("enquery sent successfully!", {
                 id: toastId
             })
 
@@ -163,7 +163,7 @@ export default function ContactForm() {
                             disabled={loading}
                             className="mt-4 rounded-2xl bg-rose-400 dark:bg-rose-800 px-6 py-3 font-medium text-white transition hover:bg-rose-500 disabled:opacity-50"
                         >
-                            {loading ? "Sending..." : "Send Inquiry"}
+                            {loading ? "Sending..." : "Send enquery"}
                         </button>
 
                     </div>
