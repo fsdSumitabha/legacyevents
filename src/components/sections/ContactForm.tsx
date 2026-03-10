@@ -1,9 +1,12 @@
 "use client"
 
 import { useState } from "react"
+import { ContactFormData } from "@/types/contact"
 
 export default function ContactForm() {
-    const [formData, setFormData] = useState({
+    const [loading, setLoading] = useState(false)
+
+    const [formData, setFormData] = useState<ContactFormData>({
         name: "",
         email: "",
         phone: "",
@@ -17,9 +20,43 @@ export default function ContactForm() {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(formData)
+
+        if (loading) return
+
+        setLoading(true)
+
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+
+            const data = await response.json()
+
+            if (!response.ok) {
+                alert(data.error || "Failed to send inquiry")
+                return
+            }
+
+            alert("Inquiry sent successfully!")
+
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                eventType: "",
+                message: ""
+            })
+
+        } catch (error) {
+            console.error("Submit error:", error)
+            alert("Network error. Please try again.")
+        }
     }
 
     return (
@@ -140,9 +177,10 @@ export default function ContactForm() {
                         {/* Button */}
                         <button
                             type="submit"
+                            disabled={loading}
                             className="mt-4 rounded-2xl bg-rose-400 px-6 py-3 font-medium text-white transition hover:bg-rose-500"
                         >
-                            Send Inquiry
+                             {loading ? "Sending..." : "Send Inquiry"}
                         </button>
 
                     </div>
