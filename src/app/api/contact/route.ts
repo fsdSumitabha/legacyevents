@@ -8,7 +8,7 @@ function isValidEmail(email: string) {
 }
 
 export async function POST(req: NextRequest) {
-    console.log("Received contact form submission:")
+
     try {
         const body: ContactFormData = await req.json()
 
@@ -50,8 +50,6 @@ export async function POST(req: NextRequest) {
             { status: 200 }
         )
     } catch (error) {
-        console.error("Contact API Error:")
-        console.error(error)
 
         if (error instanceof SyntaxError) {
             return NextResponse.json(
