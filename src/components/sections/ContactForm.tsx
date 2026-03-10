@@ -51,7 +51,7 @@ export default function ContactForm() {
                 throw new Error(data.error || "Failed to send enquiry")
             }
 
-            toast.success("enquiry sent successfully!", {
+            toast.success("Enquiry sent successfully!", {
                 id: toastId
             })
 
