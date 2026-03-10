@@ -1,9 +1,11 @@
 "use client"
 
 import { useState } from "react"
+import { toast } from "sonner"
 import { ContactFormData } from "@/types/contact"
 
 export default function ContactForm() {
+
     const [loading, setLoading] = useState(false)
 
     const [formData, setFormData] = useState<ContactFormData>({
@@ -17,17 +19,24 @@ export default function ContactForm() {
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
     ) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value })
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
     }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
         e.preventDefault()
 
         if (loading) return
 
         setLoading(true)
 
+        const toastId = toast.loading("Sending your inquiry...")
+
         try {
+
             const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: {
@@ -39,11 +48,12 @@ export default function ContactForm() {
             const data = await response.json()
 
             if (!response.ok) {
-                alert(data.error || "Failed to send inquiry")
-                return
+                throw new Error(data.error || "Failed to send inquiry")
             }
 
-            alert("Inquiry sent successfully!")
+            toast.success("Inquiry sent successfully!", {
+                id: toastId
+            })
 
             setFormData({
                 name: "",
@@ -53,10 +63,17 @@ export default function ContactForm() {
                 message: ""
             })
 
-        } catch (error) {
-            console.error("Submit error:", error)
-            alert("Network error. Please try again.")
+        } catch (error: any) {
+
+            toast.error(
+                error?.message || "Something went wrong. Please try again.",
+                { id: toastId }
+            )
+
+        } finally {
+            setLoading(false)
         }
+
     }
 
     return (
@@ -78,13 +95,11 @@ export default function ContactForm() {
                     <p className="text-stone-600 dark:text-stone-400">
                         Tell us about your celebration and we will craft an
                         experience that feels personal, elegant, and unforgettable.
-                        From intimate ceremonies to grand weddings, our team is
-                        here to bring your vision to life.
                     </p>
 
                 </div>
 
-                {/* Form Card */}
+                {/* Form */}
                 <form
                     onSubmit={handleSubmit}
                     className="rounded-2xl bg-white p-10 shadow-xl dark:bg-stone-900"
@@ -92,95 +107,63 @@ export default function ContactForm() {
 
                     <div className="grid gap-6">
 
-                        {/* Name */}
-                        <div>
-                            <label className="mb-2 block text-sm text-stone-600 dark:text-stone-400">
-                                Full Name
-                            </label>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Full Name"
+                            required
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="w-full rounded-xl border border-rose-400 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-600 outline-none transition focus:border-rose-400 dark:border-rose-900 dark:bg-stone-800 dark:text-stone-200 dark:placeholder:text-stone-500"
+                        />
 
-                            <input
-                                type="text"
-                                name="name"
-                                required
-                                value={formData.name}
-                                onChange={handleChange}
-                                className="w-full rounded-xl border border-rose-200 bg-transparent px-4 py-3 outline-none transition focus:border-rose-400 dark:border-stone-700"
-                            />
-                        </div>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email Address"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full rounded-xl border border-rose-400 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-600 outline-none transition focus:border-rose-400 dark:border-rose-900 dark:bg-stone-800 dark:text-stone-200 dark:placeholder:text-stone-500"
+                        />
 
-                        {/* Email */}
-                        <div>
-                            <label className="mb-2 block text-sm text-stone-600 dark:text-stone-400">
-                                Email Address
-                            </label>
+                        <input
+                            type="tel"
+                            name="phone"
+                            placeholder="Phone Number"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="w-full rounded-xl border border-rose-400 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-600 outline-none transition focus:border-rose-400 dark:border-rose-900 dark:bg-stone-800 dark:text-stone-200 dark:placeholder:text-stone-500"
+                        />
 
-                            <input
-                                type="email"
-                                name="email"
-                                required
-                                value={formData.email}
-                                onChange={handleChange}
-                                className="w-full rounded-xl border border-rose-200 bg-transparent px-4 py-3 outline-none transition focus:border-rose-400 dark:border-stone-700"
-                            />
-                        </div>
+                        <select
+                            name="eventType"
+                            value={formData.eventType}
+                            onChange={handleChange}
+                            className="w-full rounded-xl border border-rose-400 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-600 outline-none transition focus:border-rose-400 dark:border-rose-900 dark:bg-stone-800 dark:text-stone-200 dark:placeholder:text-stone-500"
+                        >
+                            <option value="">Select Event</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="rice-ceremony">Rice Ceremony</option>
+                            <option value="corporate">Corporate Event</option>
+                        </select>
 
-                        {/* Phone */}
-                        <div>
-                            <label className="mb-2 block text-sm text-stone-600 dark:text-stone-400">
-                                Phone Number
-                            </label>
+                        <textarea
+                            name="message"
+                            rows={4}
+                            placeholder="Tell us about your event"
+                            value={formData.message}
+                            onChange={handleChange}
+                            className="w-full rounded-xl border border-rose-400 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-600 outline-none transition focus:border-rose-400 dark:border-rose-900 dark:bg-stone-800 dark:text-stone-200 dark:placeholder:text-stone-500"
+                        />
 
-                            <input
-                                type="tel"
-                                name="phone"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                className="w-full rounded-xl border border-rose-200 bg-transparent px-4 py-3 outline-none transition focus:border-rose-400 dark:border-stone-700"
-                            />
-                        </div>
-
-                        {/* Event Type */}
-                        <div>
-                            <label className="mb-2 block text-sm text-stone-600 dark:text-stone-400">
-                                Event Type
-                            </label>
-
-                            <select
-                                name="eventType"
-                                value={formData.eventType}
-                                onChange={handleChange}
-                                className="w-full rounded-xl border border-rose-200 bg-transparent px-4 py-3 outline-none transition focus:border-rose-400 dark:border-stone-700"
-                            >
-                                <option value="">Select Event</option>
-                                <option value="wedding">Wedding</option>
-                                <option value="birthday">Birthday</option>
-                                <option value="rice-ceremony">Rice Ceremony</option>
-                                <option value="corporate">Corporate Event</option>
-                            </select>
-                        </div>
-
-                        {/* Message */}
-                        <div>
-                            <label className="mb-2 block text-sm text-stone-600 dark:text-stone-400">
-                                Tell Us About Your Event
-                            </label>
-
-                            <textarea
-                                name="message"
-                                rows={4}
-                                value={formData.message}
-                                onChange={handleChange}
-                                className="w-full resize-none rounded-xl border border-rose-200 bg-transparent px-4 py-3 outline-none transition focus:border-rose-400 dark:border-stone-700"
-                            />
-                        </div>
-
-                        {/* Button */}
                         <button
                             type="submit"
                             disabled={loading}
-                            className="mt-4 rounded-2xl bg-rose-400 px-6 py-3 font-medium text-white transition hover:bg-rose-500"
+                            className="mt-4 rounded-2xl bg-rose-400 dark:bg-rose-800 px-6 py-3 font-medium text-white transition hover:bg-rose-500 disabled:opacity-50"
                         >
-                             {loading ? "Sending..." : "Send Inquiry"}
+                            {loading ? "Sending..." : "Send Inquiry"}
                         </button>
 
                     </div>
