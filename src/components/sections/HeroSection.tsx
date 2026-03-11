@@ -6,12 +6,13 @@ export default function Hero() {
         <section className="relative h-screen w-full overflow-hidden">
 
             {/* Background Image */}
-            <Image
-                src="/images/rose_bg.jpg"
-                alt="Soft pink floral background"
-                fill
-                priority
-                className="object-cover"
+            <video
+                src="/videos/rose_loop_upscaled.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 h-full w-full object-cover"
             />
 
             {/* Soft Gradient Overlay */}
