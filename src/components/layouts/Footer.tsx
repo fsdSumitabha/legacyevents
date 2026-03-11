@@ -1,3 +1,6 @@
+import Link from "next/link"
+import Image from "next/image"
+
 export default function Footer() {
     return (
         <footer className="bg-white dark:bg-stone-950">
@@ -8,9 +11,15 @@ export default function Footer() {
 
                     {/* Brand */}
                     <div>
-                        <h3 className="font-serif text-2xl text-stone-800 dark:text-stone-100">
-                            Legacy Events
-                        </h3>
+                    <Link href="/" className="flex items-center">
+                        <Image
+                            src="/logo/legacy-events-logo.png"
+                            alt="Legacy Events"
+                            width={160}
+                            height={40}
+                            priority
+                        />
+                    </Link>
 
                         <p className="mt-6 max-w-xs text-sm leading-relaxed text-stone-600 dark:text-stone-400">
                             Crafting timeless celebrations with elegance,

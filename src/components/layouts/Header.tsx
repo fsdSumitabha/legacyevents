@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false)
@@ -29,11 +30,14 @@ export default function Header() {
                     }`}>
 
                     {/* Logo */}
-                    <Link
-                        href="/"
-                        className="font-serif text-2xl text-stone-800 dark:text-stone-100"
-                    >
-                        Legacy Events
+                    <Link href="/" className="flex items-center">
+                        <Image
+                            src="/logo/legacy-events-logo.png"
+                            alt="Legacy Events"
+                            width={160}
+                            height={40}
+                            priority
+                        />
                     </Link>
 
                     {/* Desktop Nav */}
