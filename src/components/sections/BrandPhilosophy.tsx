@@ -37,7 +37,7 @@ export default function BrandPhilosophy() {
 
                         <div className="mt-10 border-l border-stone-200 pl-6 dark:border-stone-800">
                             <p className="text-sm text-stone-400 dark:text-stone-500">
-                                — The Legacy Team
+                                — Nibedita Singha Roy
                             </p>
                         </div>
                     </div>
