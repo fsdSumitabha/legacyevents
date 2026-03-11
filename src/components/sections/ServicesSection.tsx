@@ -1,10 +1,12 @@
 import RangoliDivider from "@/components/RangoliDivider"
 import ServiceCard from "@/components/ServiceCard"
 import Grain from "@/components/Grain"
+import ScrollConfetti from "@/components/confetties/ScrollConfetti"
 
 export default function ServicesSection() {
     return (
         <section className="relative overflow-hidden bg-rose-50 py-24 dark:bg-stone-950">
+            <ScrollConfetti />
 
             {/* Grain Overlay */}
             <Grain />
