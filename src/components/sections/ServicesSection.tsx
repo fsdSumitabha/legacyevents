@@ -28,7 +28,6 @@ export default function ServicesSection() {
                 </div>
 
                 <div className="grid gap-8 md:grid-cols-3">
-
                     <ServiceCard
                         title="Weddings"
                         description="Elegant, personalized wedding experiences crafted with beauty, tradition, and modern refinement."
@@ -43,7 +42,6 @@ export default function ServicesSection() {
                         title="Birthday Celebrations"
                         description="Memorable milestone gatherings designed to reflect personality, joy, and connection."
                     />
-
                 </div>
 
                 <RangoliDivider />
