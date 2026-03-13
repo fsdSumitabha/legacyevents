@@ -1,6 +1,6 @@
 import Image from "next/image"
 import BlobCard from "@/components/BlobCard"
-import HeroContent from "@/components/HeroComponent"
+import HeroContent from "@/components/HeroContent"
 
 export default function Hero() {
     return (
