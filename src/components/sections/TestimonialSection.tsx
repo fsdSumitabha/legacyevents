@@ -1,4 +1,5 @@
 import Image from "next/image"
+import AnimatedQuote from "../AnimatedQuote"
 
 type Testimonial = {
     quote: string
@@ -53,7 +54,10 @@ export default function TestimonialSection() {
                         “
                     </span>
 
-                    {testimonial.quote}
+                    <AnimatedQuote
+    text={testimonial.quote}
+    className="font-serif text-3xl leading-relaxed text-stone-800 dark:text-stone-100 sm:text-4xl lg:text-5xl"
+/>
 
                     <span className="absolute -bottom-10 -right-4 text-7xl text-rose-300 opacity-60 sm:-right-8 sm:text-8xl">
                         ”
