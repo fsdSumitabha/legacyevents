@@ -1,9 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
+import FooterBalloons from "@/components/matters/FooterBalloons"
 
 export default function Footer() {
     return (
-        <footer className="bg-white dark:bg-stone-950">
+        <footer className="relative bg-white dark:bg-stone-950">
             <div className="mx-auto max-w-7xl px-6 pt-24 pb-12 lg:px-12">
 
                 {/* Top Grid */}
@@ -132,6 +133,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+            <FooterBalloons />
         </footer>
     )
 }
