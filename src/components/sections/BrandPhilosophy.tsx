@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Signature from "../Signature"
 
 export default function BrandPhilosophy() {
     return (
@@ -35,10 +36,8 @@ export default function BrandPhilosophy() {
                             </p>
                         </div>
 
-                        <div className="mt-10 border-l border-stone-200 pl-6 dark:border-stone-800">
-                            <p className="text-sm text-stone-400 dark:text-stone-500">
-                                — Nibedita Singha Roy
-                            </p>
+                        <div className="mt-10 pl-6 dark:border-stone-800">
+                            <Signature text="— Nibedita Singha Roy" />
                         </div>
                     </div>
 
